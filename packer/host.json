@@ -1,0 +1,25 @@
+{
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "/home/albert/CourseWork/packer/key.json",
+            "folder_id": "b1gjglol49ga8tkukjdk",
+            "source_image_family": "ubuntu-1804-lts",
+            "image_name": "hosts-{{timestamp}}",
+            "image_family": "hosts",
+            "ssh_username": "ubuntu",
+            "use_ipv4_nat": true,
+            "zone": "ru-central1-a",
+            "disk_size_gb": "50",
+            "platform_id": "standard-v1"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./docker.sh",
+            "execute_command": "sudo {{.Path}}",
+            "pause_before": "10s"
+        }
+    ]
+}
