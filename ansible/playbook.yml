@@ -1,18 +1,18 @@
 ---
 - name: Configure hosts
-hosts: all
-tasks:
-  - name: install nginx,zsh,wget,git
-    become: true
-        commands: apt install -y nginx zsh wget git
-  - name: clone from git to /var/www/
-        commands:
-  - name: new config
-    become: true
-        commands:
-  - name: congig sysctl
-    become: true
-        commands:
-  - name: create two ssh key
-    become: true
-        commands:
+  hosts: all
+  tasks:
+    - name: install nginx,zsh,wget,git
+      become: true
+          commands: apt install -y nginx zsh wget git
+    - name: clone from git to /var/www/
+          commands:
+    - name: new config
+      become: true
+          commands:
+    - name: congig sysctl
+      become: true
+          commands:
+    - name: create two ssh key
+      become: true
+          commands:

@@ -1,0 +1,7 @@
+---
+- name: Configure hosts
+  hosts: all
+  tasks:
+    - name: install nginx
+      become: true  
+      command: apt install -y mc git
