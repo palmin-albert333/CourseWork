@@ -1,0 +1,15 @@
+sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-available/default
+sudo touch /etc/nginx/sites-enabled/config
+sudo touch /etc/nginx/sites-available/config
+echo "server {" > /etc/nginx/sites-available/config
+echo "       listen 80;" >> /etc/nginx/sites-available/config
+echo "       listen [::]:80;" >> /etc/nginx/sites-available/config
+echo "       server_name example.com;" >> /etc/nginx/sites-available/config
+echo "       root /var/www/site;" >> /etc/nginx/sites-available/config
+echo "       index index.html;" >> /etc/nginx/sites-available/config
+echo "       location / {" >> /etc/nginx/sites-available/config
+echo "               try_files $uri $uri/ =404;" >> /etc/nginx/sites-available/config
+echo "       }" >> /etc/nginx/sites-available/config
+echo "}" >> /etc/nginx/sites-available/config
+systemctl restart nginx
